@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="top">
-      <HelloWorld ></HelloWorld >
+<!--      <HelloWorld ></HelloWorld >-->
+      <Gaode></Gaode>
     </div>
 
     <div class="left">
@@ -11,6 +12,7 @@
     <div class="right">
       <MapView></MapView>
     </div>
+<!--      <Beijing></Beijing>-->
 
   </div>
 </template>
@@ -19,12 +21,16 @@
 import BarView from './components/BarView'
 import MapView from './components/MapView'
 import HelloWorld from './components/HelloWorld'
+// import Beijing from './components/Beijing'
+import Gaode from './components/Gaode'
 export default {
   name: 'App',
   components: {
     BarView,
     MapView,
-    HelloWorld
+    HelloWorld,
+    Gaode
+    // Beijing
   }
 }
 </script>
@@ -36,13 +42,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  width: 2000px;
-  height: 700px;
+  width: 1500px;
 }
   .top{
      /*width: 800px;*/
      /*height:300px;*/
+    border: 2px solid black;
    }
   .left{
     float: left;
