@@ -1,19 +1,28 @@
 <template>
   <div id="app">
     <div class="top">
-<!--      <HelloWorld ></HelloWorld >-->
-      <Gaode></Gaode>
+      <div class="top1">
+        <h2 :style="{color:'#303133'}">北京市空气质量分析</h2>
+        <TableView></TableView>
+    </div>
+      <div class="top2">
+        <Gaode></Gaode>
+      </div>
+    </div>
+    <div class="one">
+      <LineView></LineView>
+    </div>
+      <!--      <BarView></BarView>-->
+    <div class="two">
+<!--      <MapView></MapView>-->
     </div>
 
-    <div class="left">
-      <BarView></BarView>
+    <div class="three">
     </div>
 
-    <div class="right">
-      <MapView></MapView>
+    <div class="four">
+<!--      <ContrastView></ContrastView>-->
     </div>
-<!--      <Beijing></Beijing>-->
-
   </div>
 </template>
 
@@ -21,16 +30,20 @@
 import BarView from './components/BarView'
 import MapView from './components/MapView'
 import HelloWorld from './components/HelloWorld'
-// import Beijing from './components/Beijing'
 import Gaode from './components/Gaode'
+import LineView from './components/LineView'
+import ContrastView from './components/ContrastView'
+import TableView from './components/TableView'
 export default {
   name: 'App',
   components: {
     BarView,
     MapView,
     HelloWorld,
-    Gaode
-    // Beijing
+    Gaode,
+    LineView,
+    ContrastView,
+    TableView
   }
 }
 </script>
@@ -41,25 +54,44 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  width: 1500px;
+  color: #2c3e50
 }
   .top{
-     /*width: 800px;*/
-     /*height:300px;*/
-    border: 2px solid black;
+    height: 507px;
+  }
+  .top1{
+       float: left;
+       border: 2px solid darkblue;
+       width: 436px;
+       height: 507px;
+     }
+  .top2{
+     float: left;
+     width: 1000px;
+     height:507px;
+     border: 2px solid black;
    }
-  .left{
+
+  .one{
+    float: left;
+    border: 2px solid red;
+    width: 1000px;
+    height: 300px;
+    /*width: 400px;*/
+    /*height: 100px;*/
+    /*margin-left: 20px;*/
+  }
+  .two{
     float: left;
     /*width: 400px;*/
     /*height: 100px;*/
     /*margin-left: 20px;*/
   }
-  .right{
+  .three{
     float: left;
-    /*width: 400px;*/
-    /*height: 100px;*/
-    /*margin-left: 20px;*/
+  }
+  .four{
+    float: left;
   }
 
 </style>
