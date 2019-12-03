@@ -9,19 +9,19 @@
         <Gaode></Gaode>
       </div>
     </div>
-    <div class="one">
-      <LineView></LineView>
-    </div>
-      <!--      <BarView></BarView>-->
-    <div class="two">
-<!--      <MapView></MapView>-->
-    </div>
-
-    <div class="three">
-    </div>
-
-    <div class="four">
-<!--      <ContrastView></ContrastView>-->
+    <div class="low">
+      <div class="one">
+        <ContrastView></ContrastView>
+      </div>
+      <div class="two">
+      </div>
+      <div class="three">
+        <LargeView></LargeView>
+      </div>
+      <div class="four">
+        <!--      <ContrastView></ContrastView>-->
+      </div>
+      <!--    <AreaView></AreaView>-->
     </div>
   </div>
 </template>
@@ -31,9 +31,10 @@ import BarView from './components/BarView'
 import MapView from './components/MapView'
 import HelloWorld from './components/HelloWorld'
 import Gaode from './components/Gaode'
-import LineView from './components/LineView'
 import ContrastView from './components/ContrastView'
 import TableView from './components/TableView'
+import AreaView from './components/AreaView'
+import LargeView from './components/LargeView'
 export default {
   name: 'App',
   components: {
@@ -41,9 +42,10 @@ export default {
     MapView,
     HelloWorld,
     Gaode,
-    LineView,
     ContrastView,
-    TableView
+    TableView,
+    AreaView,
+    LargeView
   }
 }
 </script>
@@ -60,6 +62,7 @@ export default {
     width: 100%;
     height: 544px;
   }
+
   .top1{
        float: left;
        border: 2px solid darkblue;
@@ -68,22 +71,23 @@ export default {
      }
   .top2{
      float: left;
-     width: 66%;
+     width: 68.5%;
      height:100%;
      border: 2px solid black;
    }
-
+  .low{
+    width: 100%;
+    height: 330px;
+  }
   .one{
     float: left;
     border: 2px solid red;
-    width: 1000px;
-    height: 300px;
-    /*width: 400px;*/
-    /*height: 100px;*/
-    /*margin-left: 20px;*/
+    width: 25%;
+    height: 350px;
   }
   .two{
     float: left;
+    border: 2px solid greenyellow;
     /*width: 400px;*/
     /*height: 100px;*/
     /*margin-left: 20px;*/

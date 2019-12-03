@@ -1,5 +1,5 @@
 <template>
-  <div id="contrast" :style="{width: '400px', height: '300px'}" ref="chart"></div>
+  <div id="contrast" :style="{width: '100%', height: '100%'}" ref="chart"></div>
 </template>
 
 <script>
@@ -71,11 +71,6 @@ export default {
       })
       let myCharts = echarts.init(this.$refs.chart)
       myCharts.setOption({
-        title: {
-          text: '雨量流量关系图',
-          // subtext: '数据来自西安兰特水电测控技术有限公司',
-          x: 'center'
-        },
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -115,14 +110,14 @@ export default {
           }
         ],
         grid: [{
-          left: 50,
-          right: 50,
-          height: '35%'
+          left: '10%',
+          right: '2%',
+          height: '30%'
         }, {
-          left: 50,
-          right: 50,
+          left: '10%',
+          right: '2%',
           top: '55%',
-          height: '35%'
+          height: '30%'
         }],
         xAxis: [
           {
@@ -142,13 +137,11 @@ export default {
         ],
         yAxis: [
           {
-            name: '流量(m^3/s)',
             type: 'value',
             max: 500
           },
           {
             gridIndex: 1,
-            name: '降雨量(mm)',
             type: 'value',
             inverse: true
           }
