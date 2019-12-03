@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="block" :style="{width:'439px',height:'40px'}">
+    <div class="block" :style="{width:'100%',height:'100%'}">
       <span class="demonstration">日期</span>
       <el-date-picker
         class="input-box"
@@ -15,7 +15,7 @@
     :cell-style="cellStyle"
     :data="tableData"
     border
-    style="width: 436px">
+    style="width: 100%">
     <el-table-column
       prop="stationName"
       label="空气质量观测站"
@@ -40,7 +40,7 @@
     <el-table-column
       prop="NO2"
       label="NO2"
-      width="50">
+      width="52">
     </el-table-column>
     <el-table-column
       prop="CO"
@@ -50,7 +50,7 @@
     <el-table-column
       prop="O3"
       label="O3"
-      width="45">
+      width="43">
     </el-table-column>
   </el-table>
   </div>
@@ -204,6 +204,9 @@ export default {
 </script>
 
 <style>
+  .block{
+    padding-top: 5px;
+  }
   .demonstration{
     font-size: 15px;
   }

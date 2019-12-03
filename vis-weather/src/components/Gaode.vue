@@ -14,8 +14,9 @@ export default {
     initChart () {
       // eslint-disable-next-line no-unused-vars,one-var
       var marker, map = new AMap.Map('container', {
-        zoom: 11,
-        center: [116.404269, 39.916042]
+        zoom: 10,
+        center: [116.404269, 39.916042],
+        resizeEnable: true
       })
       marker = new AMap.Marker({
         icon: '//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
@@ -35,8 +36,8 @@ export default {
 
 <style scoped>
   #container{
-    width: 1000px;
-    height: 507px;
+    width: 100%;
+    height: 100%;
   }
   .amap-marker-content img{
     width: 150px;

@@ -2,7 +2,7 @@
   <div id="app">
     <div class="top">
       <div class="top1">
-        <h2 :style="{color:'#303133'}">北京市空气质量分析</h2>
+        <h2 :style="{color:'#303133',padding:'15px'}">北京市空气质量分析</h2>
         <TableView></TableView>
     </div>
       <div class="top2">
@@ -57,18 +57,19 @@ export default {
   color: #2c3e50
 }
   .top{
-    height: 507px;
+    width: 100%;
+    height: 544px;
   }
   .top1{
        float: left;
        border: 2px solid darkblue;
-       width: 436px;
-       height: 507px;
+       width: 30.5%;
+       height: 100%;
      }
   .top2{
      float: left;
-     width: 1000px;
-     height:507px;
+     width: 66%;
+     height:100%;
      border: 2px solid black;
    }
 
