@@ -1,5 +1,5 @@
 <template>
-  <div id="braMap" :style="{width: '800px', height: '300px'}" ref="barMap">饼状图</div>
+  <div id="braMap" :style="{width: '100%', height: '100%'}" ref="barMap">饼状图</div>
 </template>
 
 <script>

@@ -52,6 +52,11 @@
       label="O3"
       width="43">
     </el-table-column>
+    <el-table-column
+      prop="AQI"
+      label="AQI"
+      width="50">
+    </el-table-column>
   </el-table>
   </div>
 </template>
@@ -67,7 +72,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '东城天坛',
         PM25: '5',
@@ -75,7 +81,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '西城官园',
         PM25: '5',
@@ -83,7 +90,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '西城万寿西宫',
         PM25: '5',
@@ -91,7 +99,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '朝阳奥体中心',
         PM25: '5',
@@ -99,7 +108,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '朝阳农展馆',
         PM25: '5',
@@ -107,7 +117,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '海淀万柳',
         PM25: '5',
@@ -115,7 +126,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '石景山古城',
         PM25: '5',
@@ -123,7 +135,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '顺义新城',
         PM25: '5',
@@ -131,7 +144,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '昌平镇',
         PM25: '5',
@@ -139,7 +153,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '怀柔镇',
         PM25: '5',
@@ -147,7 +162,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       }, {
         stationName: '定陵',
         PM25: '5',
@@ -155,7 +171,8 @@ export default {
         SO2: '1',
         NO2: '35',
         CO: '0',
-        O3: '22'
+        O3: '22',
+        AQI: '30'
       } ],
       // pickerOptions: {
       //   disabledDate (time) {
@@ -178,6 +195,8 @@ export default {
         return 'background:#74C600;color:#000000'
       } else if (rowIndex === 0 && columnIndex === 6) {
         return 'background:#409EFF;color:#000000'
+      } else if (rowIndex === 0 && columnIndex === 7) {
+        return 'background:#BC1313;color:#000000'
       } else {
         return 'color: #000000'
       }
@@ -195,6 +214,8 @@ export default {
         return 'color: #74C600'
       } else if (columnIndex === 6) {
         return 'color: #409EFF'
+      } else if (columnIndex === 7) {
+        return 'color: #BC1313'
       } else {
         return 'color:#000000'
       }

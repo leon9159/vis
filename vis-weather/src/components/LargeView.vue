@@ -1,5 +1,5 @@
 <template>
-  <div id="largeView" :style="{width: '800px',height: '250px'}" ref="chart"></div>
+  <div id="largeView" :style="{width: '100%',height: '100%'}" ref="chart"></div>
 </template>
 
 <script>
@@ -38,7 +38,8 @@ export default {
         // },
         grid: {
           top: '10%',
-          left: '5%'
+          left: '5%',
+          right: '2%'
         },
         xAxis: {
           type: 'category',
@@ -76,15 +77,15 @@ export default {
             itemStyle: {
               color: '#CCFF00'
             },
-            areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: '#CCFF99'
-              }, {
-                offset: 1,
-                color: '#CCFF00'
-              }])
-            },
+            // areaStyle: {
+            //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            //     offset: 0,
+            //     color: '#CCFF99'
+            //   }, {
+            //     offset: 1,
+            //     color: '#CCFF00'
+            //   }])
+            // },
             data: data
           },
           {
@@ -96,15 +97,15 @@ export default {
             itemStyle: {
               color: '#FF0000'
             },
-            areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: '#FF6666'
-              }, {
-                offset: 1,
-                color: '#FF0000'
-              }])
-            },
+            // areaStyle: {
+            //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            //     offset: 0,
+            //     color: '#FF6666'
+            //   }, {
+            //     offset: 1,
+            //     color: '#FF0000'
+            //   }])
+            // },
             data: data2
           }
         ]
