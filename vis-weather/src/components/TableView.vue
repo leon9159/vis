@@ -6,7 +6,12 @@
         class="input-box"
         v-model="value1"
         type="date"
-        placeholder="选择日期">
+        placeholder="选择日期"
+        :picker-options="pickerOptions"
+        @change="time"
+        format="yyyy-MM-dd "
+        value-format="yyyy-MM-dd"
+      >
       </el-date-picker>
      </div>
     <el-table
@@ -174,14 +179,45 @@ export default {
         O3: '22',
         AQI: '30'
       } ],
-      // pickerOptions: {
-      //   disabledDate (time) {
-      //     return time.getTime() > Date.now()
-      //   },
-      value1: ''
+      value1: '',
+      pickerOptions: {
+        disabledDate (time) {
+          return time.getTime() > Date.now()
+        },
+        onPick () {
+          console.log('jj')
+          // 这里可以写执行之后的逻辑 用户选择一次时间范围会触发两次
+        }
+      }
+
     }
   },
   methods: {
+    // axios.get('/user?ID=12345')
+    //     .then(function (response) {
+    //       console.log(response);
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     }),
+
+    // onClick(picker) {
+    //   console.log('jj')
+    // },
+    time () {
+      console.log('jj')
+      console.log(this.value1)
+      this.$axios
+        .post('/data/table', {date: this.value1})
+        .then(successResponse => {
+          // if (successResponse.data.code === 200) {
+          //   this.$router.replace({path: '/index'})
+          // }/
+          console.log(successResponse)
+        })
+        .catch(failResponse => {
+        })
+    },
     rowClass ({row, rowIndex, column, columnIndex}) {
       if (rowIndex === 0 && columnIndex === 1) {
         return 'background:#F56C6C;color:#000000'
