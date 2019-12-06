@@ -6,18 +6,18 @@
         <TableView></TableView>
     </div>
       <div class="top2">
-        <Gaode></Gaode>
+<!--        <Gaode></Gaode>-->
       </div>
     </div>
     <div class="low">
       <div class="one">
-        <ContrastView></ContrastView>
+<!--        <ContrastView></ContrastView>-->
       </div>
       <div class="two">
-        <BarView></BarView>
+<!--        <BarView></BarView>-->
       </div>
       <div class="three">
-        <LargeView></LargeView>
+<!--        <LargeView></LargeView>-->
       </div>
       <div class="four">
       </div>
