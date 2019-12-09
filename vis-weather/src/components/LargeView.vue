@@ -20,7 +20,7 @@ export default {
     initCharts () {
       var base = +new Date(2013, 2, 31)
       var oneDay = 24 * 3600 * 1000
-      for (var i = 1; i < 13; i++) {
+      for (var i = 1; i < 1460; i++) {
         var now = new Date(base += oneDay)
         this.date.push([now.getFullYear(), now.getMonth(), now.getDate()].join('-'))
       }

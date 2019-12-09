@@ -23,14 +23,14 @@
     border
     style="width: 100%"
     >
-    <el-table-column prop="stationName" label="空气质量观测站" width="120" ></el-table-column>
-    <el-table-column prop="pm25" label="PM2.5" width="65" color="red"></el-table-column>
-    <el-table-column prop="pm10" label="PM10" width="60"></el-table-column>
-    <el-table-column prop="so2" label="SO2" width="50"></el-table-column>
-    <el-table-column prop="no2" label="NO2" width="52"></el-table-column>
-    <el-table-column prop="co" label="CO" width="45"></el-table-column>
-    <el-table-column prop="o3" label="O3" width="43"></el-table-column>
-    <el-table-column prop="AQI" label="AQI" width="50"></el-table-column>
+    <el-table-column prop="stationName" label="观测站" width="83" ></el-table-column>
+    <el-table-column prop="pm25" label="PM2.5" width="70" color="red"></el-table-column>
+    <el-table-column prop="pm10" label="PM10" width="70"></el-table-column>
+    <el-table-column prop="so2" label="SO2" width="70"></el-table-column>
+    <el-table-column prop="no2" label="NO2" width="70"></el-table-column>
+    <el-table-column prop="co" label="CO" width="70"></el-table-column>
+    <el-table-column prop="o3" label="O3" width="70"></el-table-column>
+    <el-table-column prop="AQI" label="AQI" width="70"></el-table-column>
   </el-table>
   </div>
 </template>
@@ -40,17 +40,17 @@ export default {
   data () {
     return {
       tableData: [
-        {stationName: '东城东四', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '东城天坛', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '西城官园', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '西城万寿西宫', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '朝阳奥体中心', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '朝阳农展馆', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '海淀万柳', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '石景山古城', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '顺义新城', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '昌平镇', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '怀柔镇', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '奥体中心', pm25: '5.000', pm10: '2.000', so2: '1.000', no2: '35.000', co: '3.000', o3: '22.000', AQI: '30.000'},
+        {stationName: '昌平', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '东四', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '官园', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '古城', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '怀柔', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '顺义', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '天坛', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '农展馆', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '万柳', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '万寿西宫', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
         {stationName: '定陵', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'}],
       value1: '',
       pickerOptions: {
@@ -105,19 +105,19 @@ export default {
     },
     cellStyle ({columnIndex}) {
       if (columnIndex === 1) {
-        return 'color: #F56C6C;font-size:10px;padding: 0px'
+        return 'color: #F56C6C;font-size:5px;padding: 0px'
       } else if (columnIndex === 2) {
-        return 'color: #909399'
+        return 'color: #909399;font-size:5px'
       } else if (columnIndex === 3) {
-        return 'color: #e6a23c'
+        return 'color: #e6a23c;font-size: 5px'
       } else if (columnIndex === 4) {
-        return 'color: #54A59A'
+        return 'color: #54A59A;font-size: 5px'
       } else if (columnIndex === 5) {
-        return 'color: #74C600'
+        return 'color: #74C600; font-size: 5px'
       } else if (columnIndex === 6) {
-        return 'color: #409EFF'
+        return 'color: #409EFF; font-size:5px'
       } else if (columnIndex === 7) {
-        return 'color: #BC1313'
+        return 'color: #BC1313; font-size:5px'
       } else {
         return 'color:#000000'
       }

@@ -3,7 +3,7 @@
     <div class="top">
       <div class="top1">
         <h2 :style="{color:'#303133',padding:'15px'}">北京市空气质量分析</h2>
-<!--        <TableView></TableView>-->
+        <TableView></TableView>
     </div>
       <div class="top2">
 <!--        <Gaode></Gaode>-->
