@@ -5,26 +5,55 @@
 <script>
 const echarts = require('echarts')
 export default {
+  data () {
+    return {
+      pm25data: [],
+      pm10data: [],
+      so2data: [],
+      no2data: [],
+      codata: [],
+      o3data: [],
+      date: []
+    }
+  },
   methods: {
     initCharts () {
-      let myCharts = echarts.init(this.$refs.chart)
-      var base = +new Date(1968, 9, 3)
+      var base = +new Date(2013, 2, 31)
       var oneDay = 24 * 3600 * 1000
-      var date = []
-      var data = [30]
-      var data2 = [5]
-      for (var i = 1; i < 20000; i++) {
+      for (var i = 1; i < 13; i++) {
         var now = new Date(base += oneDay)
-        date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'))
-        data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]))
-        data2.push(Math.round((Math.random() - 0.5) * 20 + data2[i - 1]))
+        this.date.push([now.getFullYear(), now.getMonth(), now.getDate()].join('-'))
       }
+      this.$axios
+        .get('/data/large')
+        .then(successResponse => {
+          console.log(successResponse.data)
+          const datas = successResponse.data
+          console.log(datas)
+          this.pm25data = Array.from(datas.pm25)
+          this.pm10data = Array.from(datas.pm10)
+          this.no2data = Array.from(datas.no2)
+          this.so2data = Array.from(datas.so2)
+          this.codata = Array.from(datas.co)
+          this.o3data = Array.from(datas.o3)
+          // console.log(this.pm25data)
+          this.drowChart()
+        })
+        .catch(failResponse => {
+          console.log(failResponse.message)
+        })
+    },
+    drowChart () {
+      let myCharts = echarts.init(this.$refs.chart)
       myCharts.setOption({
         tooltip: {
           trigger: 'axis',
           position: function (pt) {
             return [pt[0], '10%']
           }
+        },
+        legend: {
+          data: ['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']
         },
         // toolbox: {
         //   orient: 'vertical',
@@ -44,10 +73,10 @@ export default {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: date
+          data: this.date
         },
         yAxis: {
-          type: 'value',
+          type: 'log',
           boundaryGap: [0, '100%']
         },
         dataZoom: [{
@@ -69,13 +98,13 @@ export default {
         }],
         series: [
           {
-            name: '模拟数据',
+            name: 'PM2.5',
             type: 'line',
             smooth: true,
             symbol: 'none',
             sampling: 'average',
             itemStyle: {
-              color: '#CCFF00'
+              color: '#F56C6C'
             },
             // areaStyle: {
             //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -86,16 +115,16 @@ export default {
             //     color: '#CCFF00'
             //   }])
             // },
-            data: data
+            data: this.pm25data
           },
           {
-            name: '模拟数据',
+            name: 'PM10',
             type: 'line',
             smooth: true,
             symbol: 'none',
             sampling: 'average',
             itemStyle: {
-              color: '#FF0000'
+              color: '#909399'
             },
             // areaStyle: {
             //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -106,7 +135,87 @@ export default {
             //     color: '#FF0000'
             //   }])
             // },
-            data: data2
+            data: this.pm10data
+          },
+          {
+            name: 'SO2',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+              color: '#E6A23C'
+            },
+            // areaStyle: {
+            //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            //     offset: 0,
+            //     color: '#CCFF99'
+            //   }, {
+            //     offset: 1,
+            //     color: '#CCFF00'
+            //   }])
+            // },
+            data: this.so2data
+          },
+          {
+            name: 'NO2',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+              color: '#54A59A'
+            },
+            // areaStyle: {
+            //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            //     offset: 0,
+            //     color: '#CCFF99'
+            //   }, {
+            //     offset: 1,
+            //     color: '#CCFF00'
+            //   }])
+            // },
+            data: this.no2data
+          },
+          {
+            name: 'CO',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+              color: '#74C600'
+            },
+            // areaStyle: {
+            //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            //     offset: 0,
+            //     color: '#CCFF99'
+            //   }, {
+            //     offset: 1,
+            //     color: '#CCFF00'
+            //   }])
+            // },
+            data: this.codata
+          },
+          {
+            name: 'O3',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+              color: '#409EFF'
+            },
+            // areaStyle: {
+            //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            //     offset: 0,
+            //     color: '#CCFF99'
+            //   }, {
+            //     offset: 1,
+            //     color: '#CCFF00'
+            //   }])
+            // },
+            data: this.o3data
           }
         ]
       })

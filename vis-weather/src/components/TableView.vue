@@ -22,47 +22,15 @@
     :data="tableData"
     border
     style="width: 100%"
-
     >
-    <el-table-column  label="空气质量观测站" width="120">
-      <template  slot-scope="scope">
-        {{scope.row.stationName}}
-      </template>
-    </el-table-column>
-
-      <el-table-column  label="PM25" width="120">
-        <template  slot-scope="scope">
-          {{scope.row.pm25}}
-        </template>
-      </el-table-column>
-
-      <el-table-column label="PM10" width="120">
-        <template  slot-scope="scope">
-          {{scope.row.pm10}}
-        </template>
-      </el-table-column>
-
-      <el-table-column   label="SO2" width="120">
-        <template  slot-scope="scope">
-          {{scope.row.so2}}
-        </template>
-      </el-table-column>
-
-      <el-table-column  label="NO2" width="120">
-        <template  slot-scope="scope">
-          {{scope.row.no2}}
-        </template>
-      </el-table-column>
-
-<!--      <el-table-column prop="空气质量观测站" label="空气质量观测站.5" width="120" ></el-table-column>-->
-
-<!--    <el-table-column prop="PM25" label="PM2.5" width="65" color="red"></el-table-column>-->
-<!--    <el-table-column prop="PM10" label="PM10" width="60"></el-table-column>-->
-<!--    <el-table-column prop="SO2" label="SO2" width="50"></el-table-column>-->
-<!--    <el-table-column prop="NO2" label="NO2" width="52"></el-table-column>-->
-<!--    <el-table-column prop="CO" label="CO" width="45"></el-table-column>-->
-<!--    <el-table-column prop="O3" label="O3" width="43"></el-table-column>-->
-<!--    <el-table-column prop="AQI" label="AQI" width="50"></el-table-column>-->
+    <el-table-column prop="stationName" label="空气质量观测站" width="120" ></el-table-column>
+    <el-table-column prop="pm25" label="PM2.5" width="65" color="red"></el-table-column>
+    <el-table-column prop="pm10" label="PM10" width="60"></el-table-column>
+    <el-table-column prop="so2" label="SO2" width="50"></el-table-column>
+    <el-table-column prop="no2" label="NO2" width="52"></el-table-column>
+    <el-table-column prop="co" label="CO" width="45"></el-table-column>
+    <el-table-column prop="o3" label="O3" width="43"></el-table-column>
+    <el-table-column prop="AQI" label="AQI" width="50"></el-table-column>
   </el-table>
   </div>
 </template>
@@ -71,37 +39,19 @@
 export default {
   data () {
     return {
-      // tableDataHead:[
-      //   {
-      //     label: '空气质量观测站',
-      //
-      //   },
-      //   {
-      //     label:'PM25',
-      //   },
-      //   {
-      //     label:'PM10',
-      //   },{
-      //     label:'SO2',
-      //   },{
-      //     label:'NO2',
-      //   },
-      // ],
       tableData: [
-        {stationName: '', PM25: '', PM10: '', SO2: '', NO2: '', CO: '', O3: '', AQI: ''},
-        // {stationName: '东城天坛', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '西城官园', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '西城万寿西宫', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '朝阳奥体中心', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '朝阳农展馆', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '海淀万柳', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '石景山古城', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '顺义新城', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '昌平镇', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '怀柔镇', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-        // {stationName: '定陵', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'}
-        // {stationName: '东城东四', PM25: '5', PM10: '2', SO2: '1', NO2: '35', CO: '0', O3: '22', AQI: '30'},
-      ],
+        {stationName: '东城东四', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '东城天坛', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '西城官园', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '西城万寿西宫', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '朝阳奥体中心', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '朝阳农展馆', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '海淀万柳', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '石景山古城', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '顺义新城', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '昌平镇', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '怀柔镇', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
+        {stationName: '定陵', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'}],
       value1: '',
       pickerOptions: {
         disabledDate (time) {
@@ -116,16 +66,6 @@ export default {
     }
   },
   methods: {
-    // axios.get('/user?ID=12345')
-    //     .then(function (response) {
-    //       console.log(response);
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //     }),
-    // onClick(picker) {
-    //   console.log('jj')
-    // },
     time () {
       console.log('jj')
       console.log(this.value1)
