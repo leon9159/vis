@@ -7,6 +7,7 @@
     </div>
       <div class="top2">
 <!--        <Gaode></Gaode>-->
+        <HeatView></HeatView>
       </div>
     </div>
     <div class="low">
@@ -17,7 +18,7 @@
 <!--        <BarView></BarView>-->
       </div>
       <div class="three">
-        <LargeView></LargeView>
+<!--        <LargeView></LargeView>-->
       </div>
       <div class="four">
       </div>
@@ -33,6 +34,7 @@ import Gaode from './components/Gaode'
 import ContrastView from './components/ContrastView'
 import TableView from './components/TableView'
 import LargeView from './components/LargeView'
+import HeatView from './components/HeatView'
 export default {
   name: 'App',
   components: {
@@ -41,7 +43,8 @@ export default {
     Gaode,
     ContrastView,
     TableView,
-    LargeView
+    LargeView,
+    HeatView
   }
 }
 </script>
