@@ -1,25 +1,25 @@
 <template>
   <div>
-    <div class="block" :style="{width:'100%',height:'100%'}">
-      <span class="demonstration">日期</span>
-      <el-date-picker
-        class="input-box"
-        v-model="value1"
-        type="date"
-        placeholder="选择日期"
-        :picker-options="pickerOptions"
-        @change="time"
-        format="yyyy-MM-dd "
-        value-format="yyyy-MM-dd"
-        default-value="2013-03-01"
-      >
-      </el-date-picker>
-     </div>
+<!--    <div class="block" :style="{width:'100%',height:'100%'}">-->
+<!--      <span class="demonstration">日期</span>-->
+<!--      <el-date-picker-->
+<!--        class="input-box"-->
+<!--        v-model="value1"-->
+<!--        type="date"-->
+<!--        placeholder="选择日期"-->
+<!--        :picker-options="pickerOptions"-->
+<!--        @change="time"-->
+<!--        format="yyyy-MM-dd "-->
+<!--        value-format="yyyy-MM-dd"-->
+<!--        default-value="2013-03-01"-->
+<!--      >-->
+<!--      </el-date-picker>-->
+<!--     </div>-->
     <el-table
     class="tableBox"
     :header-cell-style="rowClass"
     :cell-style="cellStyle"
-    :data="tableData"
+    :data="tabledata"
     border
     style="width: 100%"
     >
@@ -30,60 +30,61 @@
     <el-table-column prop="no2" label="NO2" width="70"></el-table-column>
     <el-table-column prop="co" label="CO" width="70"></el-table-column>
     <el-table-column prop="o3" label="O3" width="70"></el-table-column>
-    <el-table-column prop="AQI" label="AQI" width="70"></el-table-column>
+    <el-table-column prop="aqi" label="AQI" width="70"></el-table-column>
   </el-table>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'tablev',
   data () {
     return {
-      tableData: [
-        {stationName: '奥体中心', pm25: '5.000', pm10: '2.000', so2: '1.000', no2: '35.000', co: '3.000', o3: '22.000', AQI: '30.000'},
-        {stationName: '昌平', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '东四', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '官园', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '古城', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '怀柔', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '顺义', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '天坛', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '农展馆', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '万柳', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '万寿西宫', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'},
-        {stationName: '定陵', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', AQI: '30'}],
-      value1: '',
-      pickerOptions: {
-        disabledDate (time) {
-          return time.getTime() > Date.now()
-        },
-        onPick () {
-          console.log('jj')
-          // 这里可以写执行之后的逻辑 用户选择一次时间范围会触发两次
-        }
-      }
+      tabldata: [
+        {stationName: '奥体中心', pm25: '5.000', pm10: '2.000', so2: '1.000', no2: '35.000', co: '3.000', o3: '22.000', aqi: '30.000'},
+        {stationName: '昌平', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '东四', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '官园', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '古城', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '怀柔', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '顺义', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '天坛', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '农展馆', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '万柳', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '万寿西宫', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
+        {stationName: '定陵', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'}]
+      // pickerOptions: {
+      //   disabledDate (time) {
+      //     return time.getTime() > Date.now()
+      //   },
+      //   onPick () {
+      //     console.log('jj')
+      //     // 这里可以写执行之后的逻辑 用户选择一次时间范围会触发两次
+      //   }
+      // }
 
     }
   },
+  props: ['tabledata'],
   methods: {
-    time () {
-      console.log('jj')
-      console.log(this.value1)
-      // var _this = this
-      this.$axios
-        .post('/data/table', {date: this.value1})
-        .then(successResponse => {
-          // if (successResponse.data.code === 200) {
-          //   this.$router.replace({path: '/index'})
-          // }/
-          console.log(successResponse.data)
-          // var obj = JSON.parse(successResponse.data)
-          this.tableData = successResponse.data
-          // console.log(this.tableData)
-        })
-        .catch(failResponse => {
-        })
-    },
+    // time () {
+    //   console.log('jj')
+    //   console.log(this.value1)
+    //   // var _this = this
+    //   this.$axios
+    //     .post('/data/table', {date: this.value1})
+    //     .then(successResponse => {
+    //       // if (successResponse.data.code === 200) {
+    //       //   this.$router.replace({path: '/index'})
+    //       // }/
+    //       console.log(successResponse.data)
+    //       // var obj = JSON.parse(successResponse.data)
+    //       this.tableData = successResponse.data
+    //       // console.log(this.tableData)
+    //     })
+    //     .catch(failResponse => {
+    //     })
+    // },
     rowClass ({row, rowIndex, column, columnIndex}) {
       if (rowIndex === 0 && columnIndex === 1) {
         return 'background:#F56C6C;color:#000000'

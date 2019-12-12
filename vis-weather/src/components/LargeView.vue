@@ -13,6 +13,7 @@ export default {
       no2data: [],
       codata: [],
       o3data: [],
+      aqidata: [],
       date: []
     }
   },
@@ -27,15 +28,15 @@ export default {
       this.$axios
         .get('/data/large')
         .then(successResponse => {
-          console.log(successResponse.data)
           const datas = successResponse.data
-          console.log(datas)
+          // console.log(datas)
           this.pm25data = Array.from(datas.pm25)
           this.pm10data = Array.from(datas.pm10)
           this.no2data = Array.from(datas.no2)
           this.so2data = Array.from(datas.so2)
           this.codata = Array.from(datas.co)
           this.o3data = Array.from(datas.o3)
+          this.aqidata = Array.from(datas.aqi)
           // console.log(this.pm25data)
           this.drowChart()
         })
@@ -53,7 +54,7 @@ export default {
           }
         },
         legend: {
-          data: ['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3']
+          data: ['PM2.5', 'PM10', 'SO2', 'NO2', 'CO', 'O3', 'AQI']
         },
         // toolbox: {
         //   orient: 'vertical',
@@ -216,6 +217,26 @@ export default {
             //   }])
             // },
             data: this.o3data
+          },
+          {
+            name: 'AQI',
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            sampling: 'average',
+            itemStyle: {
+              color: 'red'
+            },
+            // areaStyle: {
+            //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            //     offset: 0,
+            //     color: '#CCFF99'
+            //   }, {
+            //     offset: 1,
+            //     color: '#CCFF00'
+            //   }])
+            // },
+            data: this.aqidata
           }
         ]
       })

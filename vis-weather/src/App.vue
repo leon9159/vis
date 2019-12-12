@@ -3,7 +3,10 @@
     <div class="top">
       <div class="top1">
         <h2 :style="{color:'#303133',padding:'15px'}">北京市空气质量分析</h2>
-        <TableView></TableView>
+        <div class="dateView">
+          <DateView></DateView>
+        </div>
+<!--          <TableView></TableView>-->
     </div>
       <div class="top2">
 <!--        <Gaode></Gaode>-->
@@ -12,13 +15,14 @@
     </div>
     <div class="low">
       <div class="one">
+        <BarView></BarView>
 <!--        <ContrastView></ContrastView>-->
       </div>
       <div class="two">
-<!--        <BarView></BarView>-->
+        <!--        <ContrastView></ContrastView>-->
       </div>
       <div class="three">
-<!--        <LargeView></LargeView>-->
+        <LargeView></LargeView>
       </div>
       <div class="four">
       </div>
@@ -35,6 +39,7 @@ import ContrastView from './components/ContrastView'
 import TableView from './components/TableView'
 import LargeView from './components/LargeView'
 import HeatView from './components/HeatView'
+import DateView from './components/DateView'
 export default {
   name: 'App',
   components: {
@@ -44,7 +49,8 @@ export default {
     ContrastView,
     TableView,
     LargeView,
-    HeatView
+    HeatView,
+    DateView
   }
 }
 </script>
@@ -101,6 +107,9 @@ export default {
   }
   .four{
     float: left;
+  }
+  .dateView{
+    height:50px;
   }
 
 </style>
