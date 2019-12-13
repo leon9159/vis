@@ -19,7 +19,7 @@
     class="tableBox"
     :header-cell-style="rowClass"
     :cell-style="cellStyle"
-    :data="tabledata"
+    :data="date"
     border
     style="width: 100%"
     >
@@ -37,10 +37,11 @@
 
 <script>
 export default {
-  name: 'tablev',
+  name: 'tableView',
+  props: ['date'],
   data () {
     return {
-      tabldata: [
+      tableData: [
         {stationName: '奥体中心', pm25: '5.000', pm10: '2.000', so2: '1.000', no2: '35.000', co: '3.000', o3: '22.000', aqi: '30.000'},
         {stationName: '昌平', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
         {stationName: '东四', pm25: '5', pm10: '2', so2: '1', no2: '35', co: '0', o3: '22', aqi: '30'},
@@ -65,26 +66,25 @@ export default {
 
     }
   },
-  props: ['tabledata'],
   methods: {
-    // time () {
-    //   console.log('jj')
-    //   console.log(this.value1)
-    //   // var _this = this
-    //   this.$axios
-    //     .post('/data/table', {date: this.value1})
-    //     .then(successResponse => {
-    //       // if (successResponse.data.code === 200) {
-    //       //   this.$router.replace({path: '/index'})
-    //       // }/
-    //       console.log(successResponse.data)
-    //       // var obj = JSON.parse(successResponse.data)
-    //       this.tableData = successResponse.data
-    //       // console.log(this.tableData)
-    //     })
-    //     .catch(failResponse => {
-    //     })
-    // },
+    postdata () {
+      console.log('table_data')
+      console.log(this.date)
+      // var _this = this
+      // this.$axios
+      //   .post('/data/table', {date: this.date})
+      //   .then(successResponse => {
+      //     //     // if (successResponse.data.code === 200) {
+      //     //     //   this.$router.replace({path: '/index'})
+      //     //     // }/
+      //     //     console.log(successResponse.data)
+      //     //     // var obj = JSON.parse(successResponse.data)
+      //     this.tableData = successResponse.data
+      //     // console.log(this.tableData)
+      //   })
+      //   .catch(failResponse => {
+      //   })
+    },
     rowClass ({row, rowIndex, column, columnIndex}) {
       if (rowIndex === 0 && columnIndex === 1) {
         return 'background:#F56C6C;color:#000000'

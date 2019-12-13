@@ -1,5 +1,14 @@
 <template>
-  <div id="braMap" :style="{width: '100%', height: '100%'}" ref="barMap">饼状图</div>
+  <div class="bar">
+    <div class="rad">
+      <el-radio-group v-model="radio">
+      <el-radio :label="3">年</el-radio>
+      <el-radio :label="6">季节</el-radio>
+      <el-radio :label="9">周</el-radio>
+      </el-radio-group>
+    </div>
+    <div class="braMap" ref="barMap"></div>
+  </div>
 </template>
 
 <script>
@@ -7,7 +16,9 @@ const echarts = require('echarts')
 export default {
   name: 'BarView',
   data () {
-    return {}
+    return {
+      radio: 3
+    }
   },
   methods: {
     initCharts () {
@@ -15,89 +26,32 @@ export default {
       myChart.setOption({
         tooltip: {
           trigger: 'axis',
-          axisPointer: { // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+          axisPointer: {
+            type: 'shadow'
           }
-        },
-        legend: {
-          data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
         },
         grid: {
           left: '3%',
-          right: '4%',
+          right: '5%',
           bottom: '3%',
+          top: '2%',
           containLabel: true
         },
         xAxis: {
-          type: 'value'
+          type: 'value',
+          boundaryGap: [0, 0.01]
         },
         yAxis: {
           type: 'category',
-          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+          data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
         },
         series: [
           {
-            name: '直接访问',
+            name: '2011年',
             type: 'bar',
-            stack: '总量',
-            label: {
-              normal: {
-                show: true,
-                position: 'insideRight'
-              }
-            },
-            data: [320, 302, 301, 334, 390, 330, 320]
-          },
-          {
-            name: '邮件营销',
-            type: 'bar',
-            stack: '总量',
-            label: {
-              normal: {
-                show: true,
-                position: 'insideRight'
-              }
-            },
-            data: [120, 132, 101, 134, 90, 230, 210]
-          },
-          {
-            name: '联盟广告',
-            type: 'bar',
-            stack: '总量',
-            label: {
-              normal: {
-                show: true,
-                position: 'insideRight'
-              }
-            },
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: '视频广告',
-            type: 'bar',
-            stack: '总量',
-            label: {
-              normal: {
-                show: true,
-                position: 'insideRight'
-              }
-            },
-            data: [150, 212, 201, 154, 190, 330, 410]
-          },
-          {
-            name: '搜索引擎',
-            type: 'bar',
-            stack: '总量',
-            label: {
-              normal: {
-                show: true,
-                position: 'insideRight'
-              }
-            },
-            data: [820, 832, 901, 934, 1290, 1330, 1320]
+            data: [18203, 23489, 29034, 104970, 131744, 630230]
           }
         ]
-
       })
     }
   },
@@ -107,6 +61,16 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style >
+  .bar{
+    height: 100%;
+    width: 100%;
+  }
+  .rad{
+    height: 10%;
+    text-align: center;
+  }
+  .braMap{
+    height: 89%;
+  }
 </style>
