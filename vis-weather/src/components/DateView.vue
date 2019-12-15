@@ -12,7 +12,7 @@
               type="date"
               placeholder="选择日期"
               :picker-options="pickerOptions"
-              @change="time(),showdot()"
+              @change="time()"
               format="yyyy-MM-dd "
               value-format="yyyy-MM-dd"
               default-value="2013-03-01"
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="top2">
-        <HeatView :date2="tableData2"></HeatView>
+        <HeatView heat-Date="value1"></HeatView>
       </div>
     </div>
     <div class="low">
@@ -86,24 +86,24 @@ export default {
       this.$axios
         .post('/data/table', {date: this.value1})
         .then(successResponse => {
-          // console.log(successResponse.data)
+          console.log(successResponse.data)
           this.tableData = successResponse.data
         })
         .catch(failResponse => {
           // eslint-disable-next-line no-sequences
         })
-    },
-    showdot () {
-      this.$axios
-        .post('/data/heatmap', {date: this.value1})
-        .then(successResponse => {
-          console.log(successResponse.data)
-          this.tableData2 = successResponse.data
-        })
-        .catch(failResponse => {
-        })
-      console.log(this.value1)
     }
+    // showdot () {
+    //   this.$axios
+    //     .post('/data/heatmap', {date: this.value1})
+    //     .then(successResponse => {
+    //       console.log(successResponse.data)
+    //       this.tableData2 = successResponse.data
+    //     })
+    //     .catch(failResponse => {
+    //     })
+    //   console.log(this.value1)
+    // }
   }
 }
 </script>
