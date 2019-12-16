@@ -1,5 +1,5 @@
 <template>
-  <div id="container" ></div>
+  <div id="container" :data="heatdate"></div>
 </template>
 
 <script>
@@ -8,90 +8,91 @@ export default {
   name: 'HeatView',
   data () {
     return {
-      heatdata: [],
-      datalist: {},
-      timevo: this.heatDate
+      res: {},
+      timevo: ''
     }
   },
-  props: ['heatDate'],
+  props: {
+    heatdate: {
+      type: String
+    }
+  },
+  // props: ['heatdate'],
   watch: {
-    heatDate: function (newVal, oldVal) {
-      this.timevo = newVal
+    heatdate: (newVal, oldVal) => {
+      console.log(newVal)
+      console.log(typeof (newVal))
+      console.log(typeof (this.heatdate))
+      this.heatdate = newVal
     }
   },
   methods: {
     initChart () {
+      console.log(typeof (this.heatdate))
+      console.log(this.heatdate)
+      // eslint-disable-next-line no-unused-vars,one-var
       this.$axios
-        .post('/data/heatmap', {date: this.timevo})
+        .post('/data/heatmap', {date: this.heatdate})
         .then(successResponse => {
           console.log(successResponse.data)
-          this.heatdata = successResponse.data
-          this.datalist = JSON.parse(JSON.stringify(this.heatdata))
-          console.log(this.datalist)
+          console.log(this.timevo)
+          // eslint-disable-next-line one-var,no-unused-vars
+          var heatmap, marker, map = new AMap.Map('container', {
+            // layers: [new AMap.TileLayer.RoadNet()],
+            zoom: 11,
+            center: [116.404269, 39.916042],
+            resizeEnable: true,
+            mapStyle: 'amap://styles/whitesmoke'
+          })
+          // marker = new AMap.Marker({
+          //   icon: '',
+          //   content: '奥体中心',
+          //   position: [116.400865, 39.983894]
+          //   // offset: new AMap.Pixel(-3, -3)
+          // })
+          // marker.setMap(map)
+          if (!this.isSupportCanvas()) {
+            this.$Message.info('热力图仅对支持canvas的浏览器适用,您所使用的浏览器不能使用热力图功能,请换个浏览器试试~')
+          }
+          map.plugin(['AMap.Heatmap'], function () {
+            // 初始化heatmap对象
+            heatmap = new AMap.Heatmap(map, {
+              radius: 50, // 给定半径
+              opacity: [0, 0.8],
+              gradient: {
+                0.1: 'rgb(240,240,240)',
+                0.3: 'rgb(150,210,248)',
+                0.5: 'blue',
+                0.65: 'rgb(117,211,248)',
+                0.7: 'rgb(0, 255, 0)',
+                0.9: '#ffea00',
+                1.0: '#ff0000'
+              }
+            })
+            heatmap.setDataSet({
+              data: successResponse.data,
+              max: 100
+            })
+            console.log(this.heatdata)
+          })
         })
+
         .catch(failResponse => {
           // eslint-disable-next-line no-sequences
         })
-      console.log(this.datalist)
       // eslint-disable-next-line no-unused-vars,one-var
-      var heatmap, marker, map = new AMap.Map('container', {
-        // layers: [new AMap.TileLayer.RoadNet()],
-        zoom: 11,
-        center: [116.404269, 39.916042],
-        resizeEnable: true,
-        mapStyle: 'amap://styles/whitesmoke'
-      })
-      // marker = new AMap.Marker({
-      //   icon: '',
-      //   content: '奥体中心',
-      //   position: [116.400865, 39.983894]
-      //   // offset: new AMap.Pixel(-3, -3)
-      // })
-      // marker.setMap(map)
-      if (!this.isSupportCanvas()) {
-        this.$Message.info('热力图仅对支持canvas的浏览器适用,您所使用的浏览器不能使用热力图功能,请换个浏览器试试~')
-      }
-      map.plugin(['AMap.Heatmap'], function () {
-        // 初始化heatmap对象
-        heatmap = new AMap.Heatmap(map, {
-          radius: 25, // 给定半径
-          opacity: [0, 0.8],
-          gradient: {
-            0.5: 'blue',
-            0.65: 'rgb(117,211,248)',
-            0.7: 'rgb(0, 255, 0)',
-            0.9: '#ffea00',
-            1.0: 'red'
-          }
-        })
-        // var mapData = []
-        // this.date2.forEach(item => {
-        //   let obj = {
-        //     'count': item.count,
-        //     'lat': item.lat,
-        //     'lng': item.lng
-        //   }
-        //   mapData.push(obj)
-        // })
-        heatmap.setDataSet({
-          data:
-          [{
-            'lng': 116.400865,
-            'lat': 39.983894,
-            'count': 13
-          }],
-          max: 100
-        })
-      })
     },
     isSupportCanvas () { // 判断浏览区是否支持canvas
       var elem = document.createElement('canvas')
       return !!(elem.getContext && elem.getContext('2d'))
     }
   },
-  mounted () {
+
+  created () {
     this.initChart()
-    // this.printout()
+  },
+  updated () {
+    this.initChart()
   }
 }
 </script>
