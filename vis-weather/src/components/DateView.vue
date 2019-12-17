@@ -2,7 +2,7 @@
   <div id="time">
     <div class="top">
       <div class="top1">
-        <h2 :style="{color:'#303133',padding:'15px',align:'center' }">北京市空气质量分析</h2>
+        <h2 :style="{color:'#303133',padding:'15px',paddingTop:'0px',paddingBottom:'0px'}">北京市空气质量分析</h2>
         <div class="dateView">
           <div class="block" :style="{width:'100%',height:'100%'}">
             <span class="demonstration">日期</span>
@@ -16,6 +16,7 @@
               format="yyyy-MM-dd "
               value-format="yyyy-MM-dd"
               default-value="2013-03-01"
+              align="center"
             >
             </el-date-picker>
           </div>
@@ -100,8 +101,10 @@ export default {
 
 <style scoped>
   .top{
+    padding-top: 0px;
+    margin-top: 0px;
     width: 100%;
-    height: 544px;
+    height: 515px;
   }
 
   .top1{
@@ -109,6 +112,7 @@ export default {
     border: 2px solid darkblue;
     width: 30.5%;
     height: 100%;
+    text-align: center;
   }
   .top2{
     float: left;
@@ -148,6 +152,10 @@ export default {
     height:50px;
   }
   .block{
-    position: center;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 </style>
