@@ -19,12 +19,6 @@ export default {
   },
   methods: {
     initCharts () {
-      var base = +new Date(2013, 2, 31)
-      var oneDay = 24 * 3600 * 1000
-      for (var i = 1; i < 1460; i++) {
-        var now = new Date(base += oneDay)
-        this.date.push([now.getFullYear(), now.getMonth(), now.getDate()].join('-'))
-      }
       this.$axios
         .get('/data/large')
         .then(successResponse => {
@@ -38,6 +32,7 @@ export default {
           this.o3data = Array.from(datas.o3)
           this.aqidata = Array.from(datas.aqi)
           // console.log(this.pm25data)
+          this.date = Array.from(datas.date)
           this.drowChart()
         })
         .catch(failResponse => {

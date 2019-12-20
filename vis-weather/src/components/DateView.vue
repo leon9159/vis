@@ -109,7 +109,7 @@ export default {
 
   .top1{
     float: left;
-    border: 2px solid darkblue;
+    border: 2px solid #909399;
     width: 30.5%;
     height: 100%;
     text-align: center;
@@ -118,7 +118,7 @@ export default {
     float: left;
     width: 68.5%;
     height:100%;
-    border: 2px solid black;
+    border: 2px solid #909399;
   }
   .low{
     width: 100%;
@@ -126,13 +126,13 @@ export default {
   }
   .one{
     float: left;
-    border: 2px solid red;
+    border: 2px solid #909399 ;
     width: 25%;
     height: 100%;
   }
   .two{
     float: left;
-    border: 2px solid greenyellow;
+    border: 2px solid #909399;
     width: 25%;
     height:100%
     /*width: 400px;*/
@@ -141,7 +141,7 @@ export default {
   }
   .three{
     float: left;
-    border: 2px solid cornflowerblue;
+    border: 2px solid #909399;
     width: 49%;
     height: 100%
   }
