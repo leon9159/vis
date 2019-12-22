@@ -29,16 +29,15 @@
     </div>
     <div class="low">
       <div class="one">
-        <!--        <ContrastView></ContrastView>-->
+        <LargeView></LargeView>
       </div>
       <div class="two">
         <BarView></BarView>
       </div>
       <div class="three">
-        <LargeView></LargeView>
+<!--        <CalendarView></CalendarView>-->
       </div>
-      <div class="four">
-      </div>
+
     </div>
   </div>
 
@@ -49,6 +48,7 @@ import tableView from './TableView'
 import HeatView from './HeatView'
 import LargeView from './LargeView'
 import BarView from './BarView'
+import CalendarView from './CalendarView'
 export default {
   name: 'DateView',
   data () {
@@ -80,7 +80,8 @@ export default {
     HeatView,
     tableView,
     LargeView,
-    BarView
+    BarView,
+    CalendarView
   },
   methods: {
     time () {
@@ -124,7 +125,7 @@ export default {
     width: 100%;
     height: 400px;
   }
-  .one{
+  .three{
     float: left;
     border: 2px solid #909399 ;
     width: 25%;
@@ -139,7 +140,7 @@ export default {
     /*height: 100px;*/
     /*margin-left: 20px;*/
   }
-  .three{
+  .one{
     float: left;
     border: 2px solid #909399;
     width: 49%;
