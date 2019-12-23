@@ -35,7 +35,7 @@
         <BarView></BarView>
       </div>
       <div class="three">
-<!--        <CalendarView></CalendarView>-->
+        <LineView></LineView>
       </div>
 
     </div>
@@ -49,6 +49,7 @@ import HeatView from './HeatView'
 import LargeView from './LargeView'
 import BarView from './BarView'
 import CalendarView from './CalendarView'
+import LineView from './LineView'
 export default {
   name: 'DateView',
   data () {
@@ -81,7 +82,8 @@ export default {
     tableView,
     LargeView,
     BarView,
-    CalendarView
+    CalendarView,
+    LineView
   },
   methods: {
     time () {
