@@ -127,18 +127,16 @@ export default {
               radius: 80, // 给定半径
               opacity: [0, 0.8],
               gradient: {
-                0.1: 'rgb(240,240,240)',
-                0.3: 'rgb(150,210,248)',
-                0.5: 'blue',
-                0.65: 'rgb(117,211,248)',
-                0.7: 'rgb(0, 255, 0)',
-                0.9: '#ffea00',
+                0: 'rgb(240,240,240)',
+                0.25: 'rgb(98,176,248)',
+                0.5: 'rgb(255,246,200)',
+                0.75: '#ffad60',
                 1.0: '#ff0000'
               }
             })
             heatmap.setDataSet({
               data: successResponse.data,
-              max: 100
+              max: 200
             })
             console.log(this.heatdata)
           })
